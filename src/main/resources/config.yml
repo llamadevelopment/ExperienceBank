@@ -11,4 +11,4 @@ MongoDB:
 
 Commands:
   XpbankCommand: "xpbank"
-  XpbankDescription: ""
+  XpbankDescription: "Show your experience bank account"
