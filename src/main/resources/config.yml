@@ -1,0 +1,14 @@
+Provider: Yaml
+MySql:
+  Host: "127.0.0.1"
+  Port: "3306"
+  User: "root"
+  Database: "xpbank"
+  Password: "meeeeooww"
+MongoDB:
+  Uri: "URI_LINK"
+  Database: "xpbank"
+
+Commands:
+  XpbankCommand: "xpbank"
+  XpbankDescription: ""
