@@ -27,20 +27,19 @@ public class YamlProvider extends Provider {
 
     @Override
     public void createUserData(Player player) {
-        xpData.set("Data." + player.getName(), player.getExperienceLevel());
+        xpData.set("Data." + player.getName(), 0);
         xpData.save();
         xpData.reload();
-        ExperienceBank.getInstance().xpMap.put(player.getName(), getBankXp(player.getName()));
+        ExperienceBank.getInstance().xpMap.put(player.getName(), 0);
     }
 
     @Override
     public void setBankXp(String player, int xp) {
-        int newXp = ExperienceBank.getInstance().xpMap.get(player) + xp;
-        xpData.set("Data." + player, newXp);
+        xpData.set("Data." + player, xp);
         xpData.save();
         xpData.reload();
         ExperienceBank.getInstance().xpMap.remove(player);
-        ExperienceBank.getInstance().xpMap.put(player, newXp);
+        ExperienceBank.getInstance().xpMap.put(player, xp);
     }
 
     @Override

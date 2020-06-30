@@ -12,6 +12,8 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MongoDBProvider extends Provider {
 
@@ -28,6 +30,8 @@ public class MongoDBProvider extends Provider {
             mongoClient = new MongoClient(uri);
             mongoDatabase = mongoClient.getDatabase(config.getString("MongoDB.Database"));
             xpCollection = mongoDatabase.getCollection("xp_data");
+            Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+            mongoLogger.setLevel(Level.OFF);
             server.getLogger().info("[MongoClient] Connection opened.");
         });
     }
@@ -41,28 +45,27 @@ public class MongoDBProvider extends Provider {
     @Override
     public boolean userExists(String player) {
         Document document = xpCollection.find(new Document("player", player)).first();
-        return document == null;
+        return document != null;
     }
 
     @Override
     public void createUserData(Player player) {
-        Document document = new Document("player", player)
-                .append("xp", player.getExperienceLevel());
+        Document document = new Document("player", player.getName())
+                .append("xp", 0);
         xpCollection.insertOne(document);
-        ExperienceBank.getInstance().xpMap.put(player.getName(), getBankXp(player.getName()));
+        ExperienceBank.getInstance().xpMap.put(player.getName(), 0);
     }
 
     @Override
     public void setBankXp(String player, int xp) {
-        int newXp = ExperienceBank.getInstance().xpMap.get(player) + xp;
         Document document = new Document("player", player);
         Document found = xpCollection.find(document).first();
-        Bson newEntry = new Document("xp", newXp);
+        Bson newEntry = new Document("xp", xp);
         Bson newEntrySet = new Document("$set", newEntry);
         assert found != null;
         xpCollection.updateOne(found, newEntrySet);
         ExperienceBank.getInstance().xpMap.remove(player);
-        ExperienceBank.getInstance().xpMap.put(player, newXp);
+        ExperienceBank.getInstance().xpMap.put(player, xp);
     }
 
     @Override

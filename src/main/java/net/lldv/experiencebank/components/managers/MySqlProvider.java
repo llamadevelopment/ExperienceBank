@@ -76,16 +76,15 @@ public class MySqlProvider extends Provider {
 
     @Override
     public void createUserData(Player player) {
-        update("INSERT INTO xp_data (PLAYER, XP) VALUES ('" + player.getName() + "', '" + player.getExperienceLevel() + "');");
-        ExperienceBank.getInstance().xpMap.put(player.getName(), getBankXp(player.getName()));
+        update("INSERT INTO xp_data (PLAYER, XP) VALUES ('" + player.getName() + "', '0');");
+        ExperienceBank.getInstance().xpMap.put(player.getName(), 0);
     }
 
     @Override
     public void setBankXp(String player, int xp) {
-        int newXp = ExperienceBank.getInstance().xpMap.get(player) + xp;
-        update("UPDATE xp_data SET XP= '" + newXp + "' WHERE PLAYER= '" + player + "';");
+        update("UPDATE xp_data SET XP= '" + xp + "' WHERE PLAYER= '" + player + "';");
         ExperienceBank.getInstance().xpMap.remove(player);
-        ExperienceBank.getInstance().xpMap.put(player, newXp);
+        ExperienceBank.getInstance().xpMap.put(player, xp);
     }
 
     @Override
