@@ -428,14 +428,7 @@
       <change afterPath="$PROJECT_DIR$/../UpgradeableFurnaces/src/main/resources/plugin.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../WaterCloud/WaterCloud.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../test/test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/api/ExperienceBankAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/api/ExperienceBankAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/forms/FormWindows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/forms/FormWindows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/MongoDBProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/MongoDBProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/MySqlProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/MySqlProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/YamlProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lldv/experiencebank/components/managers/YamlProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -511,7 +504,7 @@
       <workItem from="1593359397908" duration="2911000" />
       <workItem from="1593414557165" duration="3928000" />
       <workItem from="1593419407149" duration="16000" />
-      <workItem from="1593505077048" duration="3052000" />
+      <workItem from="1593505077048" duration="3360000" />
     </task>
     <servers />
   </component>
@@ -539,25 +532,25 @@
       <screen x="0" y="0" width="1707" height="960" />
     </state>
     <state x="634" y="236" key="FileChooserDialogImpl/-2560.12.2048.1152/2560.12.2048.1152/0.0.1707.960@0.0.1707.960" timestamp="1593360528006" />
-    <state width="1663" height="255" key="GridCell.Tab.0.bottom" timestamp="1593508323348">
+    <state width="1663" height="255" key="GridCell.Tab.0.bottom" timestamp="1593508742204">
       <screen x="0" y="0" width="1707" height="960" />
     </state>
-    <state width="1663" height="255" key="GridCell.Tab.0.bottom/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508323348" />
+    <state width="1663" height="255" key="GridCell.Tab.0.bottom/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508742204" />
     <state width="1663" height="255" key="GridCell.Tab.0.bottom/-2560.12.2048.1152/2560.12.2048.1152/0.0.1707.960@0.0.1707.960" timestamp="1593418487414" />
-    <state width="1663" height="255" key="GridCell.Tab.0.center" timestamp="1593508323348">
+    <state width="1663" height="255" key="GridCell.Tab.0.center" timestamp="1593508742204">
       <screen x="0" y="0" width="1707" height="960" />
     </state>
-    <state width="1663" height="255" key="GridCell.Tab.0.center/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508323348" />
+    <state width="1663" height="255" key="GridCell.Tab.0.center/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508742204" />
     <state width="1663" height="255" key="GridCell.Tab.0.center/-2560.12.2048.1152/2560.12.2048.1152/0.0.1707.960@0.0.1707.960" timestamp="1593418487414" />
-    <state width="1663" height="255" key="GridCell.Tab.0.left" timestamp="1593508323348">
+    <state width="1663" height="255" key="GridCell.Tab.0.left" timestamp="1593508742204">
       <screen x="0" y="0" width="1707" height="960" />
     </state>
-    <state width="1663" height="255" key="GridCell.Tab.0.left/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508323348" />
+    <state width="1663" height="255" key="GridCell.Tab.0.left/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508742204" />
     <state width="1663" height="255" key="GridCell.Tab.0.left/-2560.12.2048.1152/2560.12.2048.1152/0.0.1707.960@0.0.1707.960" timestamp="1593418487414" />
-    <state width="1663" height="255" key="GridCell.Tab.0.right" timestamp="1593508323348">
+    <state width="1663" height="255" key="GridCell.Tab.0.right" timestamp="1593508742204">
       <screen x="0" y="0" width="1707" height="960" />
     </state>
-    <state width="1663" height="255" key="GridCell.Tab.0.right/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508323348" />
+    <state width="1663" height="255" key="GridCell.Tab.0.right/-2560.12.2048.1152/0.0.1707.960/2560.12.2048.1152@0.0.1707.960" timestamp="1593508742204" />
     <state width="1663" height="255" key="GridCell.Tab.0.right/-2560.12.2048.1152/2560.12.2048.1152/0.0.1707.960@0.0.1707.960" timestamp="1593418487414" />
     <state x="753" y="406" key="GuiceyIDEA.NewGuiceProvider" timestamp="1593012900090">
       <screen x="0" y="0" width="1707" height="960" />
