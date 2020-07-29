@@ -18,7 +18,7 @@ public class MySqlProvider extends Provider {
             try {
                 Config config = server.getConfig();
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://" + config.getString("MySql.Host") + ":" + config.getString("MySql.Port") + "/" + config.getString("MySql.Database") + "?autoReconnect=true", config.getString("MySql.User"), config.getString("MySql.Password"));
+                connection = DriverManager.getConnection("jdbc:mysql://" + config.getString("MySql.Host") + ":" + config.getString("MySql.Port") + "/" + config.getString("MySql.Database") + "?autoReconnect=true&useGmtMillisForDatetimes=true&serverTimezone=GMT", config.getString("MySql.User"), config.getString("MySql.Password"));
                 update("CREATE TABLE IF NOT EXISTS xp_data(player VARCHAR(30), xp INTEGER(30), PRIMARY KEY (player));");
                 server.getLogger().info("[MySqlClient] Connection opened.");
             } catch (Exception e) {
