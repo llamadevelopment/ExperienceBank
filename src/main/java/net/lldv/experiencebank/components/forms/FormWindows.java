@@ -4,6 +4,8 @@ import cn.nukkit.Player;
 import cn.nukkit.form.element.ElementButton;
 import cn.nukkit.form.element.ElementButtonImageData;
 import cn.nukkit.form.element.ElementSlider;
+import cn.nukkit.level.Sound;
+import cn.nukkit.network.protocol.PlaySoundPacket;
 import lombok.AllArgsConstructor;
 import net.lldv.experiencebank.components.api.ExperienceBankAPI;
 import net.lldv.experiencebank.components.forms.custom.CustomForm;
@@ -33,6 +35,7 @@ public class FormWindows {
                     int i = (int) r.getSliderResponse(0);
                     if (i == 0) {
                         player.sendMessage(Language.get("amount-not-null"));
+                        this.playSound(player, Sound.NOTE_PLING);
                         return;
                     }
                     double xp = convert(player) - i;
@@ -40,6 +43,7 @@ public class FormWindows {
                     this.provider.setBankXp(player.getName(), ExperienceBankAPI.getCachedXp().get(player.getName()) + i);
                     player.addExperience((int) xp);
                     player.sendMessage(Language.get("xp-deposit-success", i));
+                    this.playSound(player, Sound.RANDOM_LEVELUP);
                 })
                 .build();
         form.send(player);
@@ -52,11 +56,13 @@ public class FormWindows {
                     int i = (int) r.getSliderResponse(0);
                     if (i == 0) {
                         player.sendMessage(Language.get("amount-not-null"));
+                        this.playSound(player, Sound.NOTE_PLING);
                         return;
                     }
                     this.provider.setBankXp(player.getName(), ExperienceBankAPI.getCachedXp().get(player.getName()) - i);
                     player.addExperience(i);
                     player.sendMessage(Language.get("xp-withdraw-success", i));
+                    this.playSound(player, Sound.RANDOM_LEVELUP);
                 })
                 .build();
         form.send(player);
@@ -64,6 +70,17 @@ public class FormWindows {
 
     private double convert(final Player player) {
         return ExperienceBankAPI.convertLevelToExperience(player.getExperienceLevel()) + player.getExperience();
+    }
+
+    private void playSound(Player player, Sound sound) {
+        PlaySoundPacket packet = new PlaySoundPacket();
+        packet.name = sound.getSound();
+        packet.x = new Double(player.getLocation().getX()).intValue();
+        packet.y = (new Double(player.getLocation().getY())).intValue();
+        packet.z = (new Double(player.getLocation().getZ())).intValue();
+        packet.volume = 1.0F;
+        packet.pitch = 1.0F;
+        player.dataPacket(packet);
     }
 
 }
