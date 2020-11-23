@@ -1,5 +1,6 @@
 name: ExperienceBank
-version: 1.0.1-SNAPSHOT
+version: 1.1.0-SNAPSHOT
 api: 1.0.0
 author: Mundschutziii
 main: net.lldv.experiencebank.ExperienceBank
+description: Store your experience points in a bank

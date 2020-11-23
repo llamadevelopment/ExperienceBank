@@ -2,13 +2,23 @@ package net.lldv.experiencebank.components.api;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.lldv.experiencebank.components.managers.provider.Provider;
+import net.lldv.experiencebank.components.forms.FormWindows;
+import net.lldv.experiencebank.components.provider.Provider;
+
+import java.util.HashMap;
 
 public class ExperienceBankAPI {
 
     @Getter
     @Setter
     public static Provider provider;
+
+    @Getter
+    @Setter
+    public static FormWindows formWindows;
+
+    @Getter
+    public static HashMap<String, Integer> cachedXp = new HashMap<>();
 
     public static double convertLevelToExperience(double level) {
         double experience = 0;

@@ -1,15 +1,16 @@
-package net.lldv.experiencebank.components.managers;
+package net.lldv.experiencebank.components.provider;
 
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import net.lldv.experiencebank.ExperienceBank;
-import net.lldv.experiencebank.components.managers.provider.Provider;
+import net.lldv.experiencebank.components.api.ExperienceBankAPI;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class YamlProvider extends Provider {
 
-    Config xpData;
+    private Config xpData;
 
     @Override
     public void connect(ExperienceBank server) {
@@ -22,33 +23,34 @@ public class YamlProvider extends Provider {
 
     @Override
     public boolean userExists(String player) {
-        return xpData.exists("Data." + player);
+        return this.xpData.exists("Data." + player);
     }
 
     @Override
     public void createUserData(Player player) {
-        xpData.set("Data." + player.getName(), 0);
-        xpData.save();
-        xpData.reload();
-        ExperienceBank.getInstance().xpMap.put(player.getName(), 0);
+        this.xpData.set("Data." + player.getName(), 0);
+        this.xpData.save();
+        this.xpData.reload();
+        ExperienceBankAPI.getCachedXp().put(player.getName(), 0);
     }
 
     @Override
     public void setBankXp(String player, int xp) {
-        xpData.set("Data." + player, xp);
-        xpData.save();
-        xpData.reload();
-        ExperienceBank.getInstance().xpMap.remove(player);
-        ExperienceBank.getInstance().xpMap.put(player, xp);
+        this.xpData.set("Data." + player, xp);
+        this.xpData.save();
+        this.xpData.reload();
+        ExperienceBankAPI.getCachedXp().remove(player);
+        ExperienceBankAPI.getCachedXp().put(player, xp);
     }
 
     @Override
-    public int getBankXp(String player) {
-        return xpData.getInt("Data." + player);
+    public void getBankXp(String player, Consumer<Integer> xp) {
+        xp.accept(this.xpData.getInt("Data." + player));
     }
 
     @Override
     public String getProvider() {
         return "Yaml";
     }
+
 }

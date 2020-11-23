@@ -1,7 +1,9 @@
-package net.lldv.experiencebank.components.managers.provider;
+package net.lldv.experiencebank.components.provider;
 
 import cn.nukkit.Player;
 import net.lldv.experiencebank.ExperienceBank;
+
+import java.util.function.Consumer;
 
 public class Provider {
 
@@ -25,8 +27,8 @@ public class Provider {
 
     }
 
-    public int getBankXp(String player) {
-        return -1;
+    public void getBankXp(String player, Consumer<Integer> xp) {
+
     }
 
     public String getProvider() {

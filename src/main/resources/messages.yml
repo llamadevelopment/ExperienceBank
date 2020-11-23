@@ -1,6 +1,4 @@
-#Standard ui icons made by Smashicons from www.flaticon.com
 # - - - System messages - - -
-
 prefix: "&8» &aXpBank &8| &7"
 no-permission: "&cYou have insufficient permissions to execute this command."
 amount-not-null: "&cThe amount can not be &70&c."
@@ -8,7 +6,6 @@ xp-deposit-success: "&2You successfully deposited &7[0] &2experience points."
 xp-withdraw-success: "&2You successfully withdrew &7[0] &2experience points."
 
 # - - - Form UI - - -
-
 xpbank-menu-title: "Your experience account"
 xpbank-menu-content: "&7You have &a[0] experience points &7on your account."
 xpbank-menu-deposit: "&8» &6Deposit"
