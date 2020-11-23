@@ -3,23 +3,26 @@ package net.lldv.experiencebank.listeners;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
-import net.lldv.experiencebank.ExperienceBank;
+import lombok.AllArgsConstructor;
 import net.lldv.experiencebank.components.api.ExperienceBankAPI;
-import net.lldv.experiencebank.components.managers.provider.Provider;
+import net.lldv.experiencebank.components.provider.Provider;
 
 import java.util.concurrent.CompletableFuture;
 
+@AllArgsConstructor
 public class EventListener implements Listener {
 
-    Provider api = ExperienceBankAPI.getProvider();
+    private final Provider provider;
 
     @EventHandler
-    public void on(PlayerJoinEvent event) {
+    public void on(final PlayerJoinEvent event) {
         CompletableFuture.runAsync(() -> {
-            if (!api.userExists(event.getPlayer().getName())) api.createUserData(event.getPlayer());
+            if (!this.provider.userExists(event.getPlayer().getName())) this.provider.createUserData(event.getPlayer());
             else {
-                ExperienceBank.getInstance().xpMap.remove(event.getPlayer().getName());
-                ExperienceBank.getInstance().xpMap.put(event.getPlayer().getName(), api.getBankXp(event.getPlayer().getName()));
+                this.provider.getBankXp(event.getPlayer().getName(), xp -> {
+                    ExperienceBankAPI.getCachedXp().remove(event.getPlayer().getName());
+                    ExperienceBankAPI.getCachedXp().put(event.getPlayer().getName(), xp);
+                });
             }
         });
     }
