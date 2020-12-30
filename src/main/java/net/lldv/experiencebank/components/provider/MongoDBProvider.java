@@ -6,7 +6,7 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import net.lldv.experiencebank.ExperienceBank;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
+import net.lldv.experiencebank.components.api.API;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -51,7 +51,7 @@ public class MongoDBProvider extends Provider {
         Document document = new Document("player", player.getName())
                 .append("xp", 0);
         this.xpCollection.insertOne(document);
-        ExperienceBankAPI.getCachedXp().put(player.getName(), 0);
+        API.getCachedXp().put(player.getName(), 0);
     }
 
     @Override
@@ -62,8 +62,8 @@ public class MongoDBProvider extends Provider {
         Bson newEntrySet = new Document("$set", newEntry);
         assert found != null;
         this.xpCollection.updateOne(found, newEntrySet);
-        ExperienceBankAPI.getCachedXp().remove(player);
-        ExperienceBankAPI.getCachedXp().put(player, xp);
+        API.getCachedXp().remove(player);
+        API.getCachedXp().put(player, xp);
     }
 
     @Override

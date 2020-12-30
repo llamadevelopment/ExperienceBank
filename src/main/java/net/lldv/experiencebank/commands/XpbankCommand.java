@@ -4,7 +4,6 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.PluginCommand;
 import net.lldv.experiencebank.ExperienceBank;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
 
 public class XpbankCommand extends PluginCommand<ExperienceBank> {
 
@@ -18,7 +17,7 @@ public class XpbankCommand extends PluginCommand<ExperienceBank> {
     public boolean execute(CommandSender sender, String s, String[] args) {
         if (sender instanceof Player) {
             final Player player = (Player) sender;
-            ExperienceBankAPI.getFormWindows().openXpBank(player);
+            ExperienceBank.getApi().getFormWindows().openXpBank(player);
         }
         return false;
     }

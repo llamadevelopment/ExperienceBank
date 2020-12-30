@@ -3,7 +3,7 @@ package net.lldv.experiencebank.components.provider;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import net.lldv.experiencebank.ExperienceBank;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
+import net.lldv.experiencebank.components.api.API;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -31,7 +31,7 @@ public class YamlProvider extends Provider {
         this.xpData.set("Data." + player.getName(), 0);
         this.xpData.save();
         this.xpData.reload();
-        ExperienceBankAPI.getCachedXp().put(player.getName(), 0);
+        API.getCachedXp().put(player.getName(), 0);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class YamlProvider extends Provider {
         this.xpData.set("Data." + player, xp);
         this.xpData.save();
         this.xpData.reload();
-        ExperienceBankAPI.getCachedXp().remove(player);
-        ExperienceBankAPI.getCachedXp().put(player, xp);
+        API.getCachedXp().remove(player);
+        API.getCachedXp().put(player, xp);
     }
 
     @Override

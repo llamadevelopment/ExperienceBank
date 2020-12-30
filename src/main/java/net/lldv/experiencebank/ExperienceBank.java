@@ -1,8 +1,9 @@
 package net.lldv.experiencebank;
 
 import cn.nukkit.plugin.PluginBase;
+import lombok.Getter;
 import net.lldv.experiencebank.commands.XpbankCommand;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
+import net.lldv.experiencebank.components.api.API;
 import net.lldv.experiencebank.components.forms.FormListener;
 import net.lldv.experiencebank.components.forms.FormWindows;
 import net.lldv.experiencebank.components.provider.MongoDBProvider;
@@ -20,6 +21,9 @@ public class ExperienceBank extends PluginBase {
     private Provider provider;
     private final Map<String, Provider> providers = new HashMap<>();
 
+    @Getter
+    private static API api;
+
     @Override
     public void onEnable() {
         try {
@@ -34,8 +38,7 @@ public class ExperienceBank extends PluginBase {
             this.provider = this.providers.get(this.getConfig().getString("Provider"));
             this.provider.connect(this);
             this.getLogger().info("§aSuccessfully loaded " + this.provider.getProvider() + " provider.");
-            ExperienceBankAPI.setProvider(this.provider);
-            ExperienceBankAPI.setFormWindows(new FormWindows(this.provider));
+            api = new API(this.provider, new FormWindows(this.provider));
             Language.init(this);
             this.loadPlugin();
             this.getLogger().info("§aPlugin successfully started.");

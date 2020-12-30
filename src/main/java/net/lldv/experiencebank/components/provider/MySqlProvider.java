@@ -2,12 +2,11 @@ package net.lldv.experiencebank.components.provider;
 
 import cn.nukkit.Player;
 import net.lldv.experiencebank.ExperienceBank;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
+import net.lldv.experiencebank.components.api.API;
 import net.lldv.experiencebank.components.simplesqlclient.MySqlClient;
 import net.lldv.experiencebank.components.simplesqlclient.objects.SqlColumn;
 import net.lldv.experiencebank.components.simplesqlclient.objects.SqlDocument;
 
-import java.sql.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
@@ -52,14 +51,14 @@ public class MySqlProvider extends Provider {
     @Override
     public void createUserData(Player player) {
         this.client.insert("xp_data", new SqlDocument("player", player.getName()).append("xp", 0));
-        ExperienceBankAPI.getCachedXp().put(player.getName(), 0);
+        API.getCachedXp().put(player.getName(), 0);
     }
 
     @Override
     public void setBankXp(String player, int xp) {
         this.client.update("xp_data", "player", player, new SqlDocument("xp", xp));
-        ExperienceBankAPI.getCachedXp().remove(player);
-        ExperienceBankAPI.getCachedXp().put(player, xp);
+        API.getCachedXp().remove(player);
+        API.getCachedXp().put(player, xp);
     }
 
     @Override
