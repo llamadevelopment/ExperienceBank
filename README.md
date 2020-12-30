@@ -42,7 +42,7 @@ xpbank |    /xpbank |    -
 
 ## Screenshots
 
-![Alt Text](https://cloudburstmc.org/attachments/experiencebank_1-png.2011/)
+![Alt Text](https://cloudburstmc.org/attachments/experiencebank_1-png.2594/)
 ![Alt Text](https://cloudburstmc.org/attachments/experiencebank_2-png.2012/)
 ![Alt Text](https://cloudburstmc.org/attachments/experiencebank_3-png.2013/)
 
