@@ -4,7 +4,7 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
 import lombok.AllArgsConstructor;
-import net.lldv.experiencebank.components.api.ExperienceBankAPI;
+import net.lldv.experiencebank.components.api.API;
 import net.lldv.experiencebank.components.provider.Provider;
 
 import java.util.concurrent.CompletableFuture;
@@ -20,8 +20,8 @@ public class EventListener implements Listener {
             if (!this.provider.userExists(event.getPlayer().getName())) this.provider.createUserData(event.getPlayer());
             else {
                 this.provider.getBankXp(event.getPlayer().getName(), xp -> {
-                    ExperienceBankAPI.getCachedXp().remove(event.getPlayer().getName());
-                    ExperienceBankAPI.getCachedXp().put(event.getPlayer().getName(), xp);
+                    API.getCachedXp().remove(event.getPlayer().getName());
+                    API.getCachedXp().put(event.getPlayer().getName(), xp);
                 });
             }
         });
