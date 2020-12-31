@@ -3,7 +3,7 @@
 Store your experience points in a bank
 
 > * Download the latest version here: [Download](https://cloudburstmc.org/resources/experiencebank.506/download)
-> * Browse other versions of BanSystem here: [Browse](https://cloudburstmc.org/resources/experiencebank.506/history)
+> * Browse other versions of ExperienceBank here: [Browse](https://cloudburstmc.org/resources/experiencebank.506/history)
 
 ### Join our Discord:
 [![d](https://img.shields.io/discord/323953253458903040.svg)](https://discord.gg/Qcuv2f6)
